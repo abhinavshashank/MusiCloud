@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "firebase": "^10.4.0",
-    "tarn": "^3.0.2"
-  }
-}
