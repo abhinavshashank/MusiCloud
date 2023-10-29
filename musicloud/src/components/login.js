@@ -92,7 +92,7 @@ import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/firebase';
 import { NavLink, useNavigate } from 'react-router-dom';
-import './styles.css'; // Import the CSS stylesheet
+import './login_signup.css'; // Import the CSS stylesheet
 
 const Login = () => {
   const navigate = useNavigate();
