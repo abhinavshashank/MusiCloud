@@ -40,8 +40,8 @@ const Signup = () => {
     <main >        
         <section>
             <div>
-                <div>                  
-                                                                                              
+                <div>
+
                     <form>                                                                                            
                         <div>
                             <label htmlFor="email-address">
@@ -70,16 +70,16 @@ const Signup = () => {
                                 placeholder="Password"              
                             />
                         </div>                                             
-                        
+
                         <button
                             type="submit" 
                             onClick={onSubmit}                        
                         >  
                             Sign up                                
                         </button>
-                                                                     
+
                     </form>
-                   
+
                     <p>
                         Already have an account?{' '}
                         <NavLink to="/login" >

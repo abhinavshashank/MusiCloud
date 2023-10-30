@@ -33,6 +33,7 @@ const Home = () => {
                     <li><a href="#">Upload Song</a></li>
                     <li><a href="#">Search Song</a></li>
                     <li><a href="#">Favorites</a></li>
+                    <li><a href="#" onClick={handleLogout}>Sign Out</a></li>
                 </ul>
             </nav>
             <main>
