@@ -1,13 +1,9 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getStorage } from "firebase/storage";
-import { getAuth } from "firebase/auth"; // Import getAuth
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getDatabase } from "firebase/database"; 
+import { getAuth } from "firebase/auth";
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 const firebaseConfig = {
   apiKey: "AIzaSyCZokZIZwoswl7eyGULGi3b1CLqBpv7dNc",
   authDomain: "musicloud-1d821.firebaseapp.com",
@@ -15,12 +11,14 @@ const firebaseConfig = {
   storageBucket: "musicloud-1d821.appspot.com",
   messagingSenderId: "771389806298",
   appId: "1:771389806298:web:6e7f123ad34b2343dab7e3",
-  measurementId: "G-M1WK0EC1TW"
+  measurementId: "G-M1WK0EC1TW",
+  databaseURL: "https://musicloud-1d821-default-rtdb.firebaseio.com/"
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const storage = getStorage(app);
+const db = getDatabase(app); 
 
-export { auth, storage };
+export { auth, storage, db, ref, uploadBytes, getDownloadURL };

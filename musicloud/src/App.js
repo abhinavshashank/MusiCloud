@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Home from './components/home';
 import Signup from './components/signup';
 import Login from './components/login';
+import UploadSong from './components/UploadSong'; // Adjust the path as needed
 import { BrowserRouter as Router} from 'react-router-dom';
 import {Routes, Route} from 'react-router-dom';
  
@@ -16,6 +17,7 @@ function App() {
               <Route path="/home" element={<Home/>}/>
               <Route path="/signup" element={<Signup/>}/>
               <Route path="/login" element={<Login/>}/>
+              <Route path="/upload" element={<UploadSong/>}/>
             </Routes>
         </section>
       </div>
