@@ -1,13 +1,9 @@
-
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { storage, db } from '../firebase/firebase'; // Import your Firebase configuration
+import { storage, db, auth } from '../firebase/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-// import { addDoc, collection } from 'firebase/firestore';
 import { push, ref as rtdbRef, set } from 'firebase/database';
 import { navigate } from 'react-router-dom';
-
 
 const UploadSong = () => {
   const navigate = useNavigate();
@@ -25,6 +21,12 @@ const UploadSong = () => {
   const handleUpload = async () => {
     if (!file) return;
 
+    const user = auth.currentUser; // Get the current authenticated user
+    if (!user) {
+      console.error('User is not authenticated.');
+      return;
+    }
+
     const storageRef = ref(storage, `Songs/${Date.now()}_${title}_${artist}_${file.name}`);
 
     try {
@@ -36,6 +38,7 @@ const UploadSong = () => {
         title,
         artist,
         audioUrl,
+        uid: user.uid, // Include the user's UID in the song data
         // Add other metadata here
       };
 
