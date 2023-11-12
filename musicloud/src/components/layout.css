@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    /* background-color: #4285f4; */
+    background-image: url('C:/Users/abhin/Desktop/MusiCloud/musicloud/assets/_90de0630-f415-4aac-9dca-756741debb9b.jpg'); 
+    background-size: cover; 
+    background-blend-mode: multiply; 
+    color: white;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    flex: 0 0 200px;
+    background-color: rgba(47, 61, 104, 0.85); /* Sidebar background color with transparency */
+    color: rgb(255, 255, 255); /* Sidebar text color */
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar a {
+    text-decoration: none;
+    color: rgb(255, 255, 255); /* Sidebar link color */
+    margin-bottom: 15px;
+  }
+  
+  .main_content {
+    flex: 1;
+    padding: 20px;
+    margin-left: 200px; /* Adjust based on your sidebar width */
+  }
+  
+  .now-playing-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Music container background color with transparency */
+    color: rgb(255, 255, 255); /* Music container text color */
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+
+  

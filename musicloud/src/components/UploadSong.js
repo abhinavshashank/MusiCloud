@@ -19,7 +19,11 @@ const UploadSong = () => {
   };
 
   const handleUpload = async () => {
-    if (!file) return;
+    if (!file || !title || !artist) {
+      // Check if any of the required fields is empty
+      console.error('Please fill in all the required fields.');
+      return;
+    }
 
     const user = auth.currentUser; // Get the current authenticated user
     if (!user) {
@@ -38,15 +42,15 @@ const UploadSong = () => {
         title,
         artist,
         audioUrl,
-        uid: user.uid, // Include the user's UID in the song data
-        // Add other metadata here
+        uid: user.uid, 
+        filename: file.name, 
+        likes: 0,
+        streamed: 0,
       };
 
-      // Reference to the Realtime Database
-      const databaseRef = rtdbRef(db, 'songs'); // Use rtdbRef to reference Realtime Database
+      const databaseRef = rtdbRef(db, 'songs'); 
 
-      // Add a new song to the database
-      const newSongRef = push(databaseRef); // Use push to generate a new unique key
+      const newSongRef = push(databaseRef); 
       await set(newSongRef, songData);
       console.log('Song metadata added to the database.');
 
@@ -58,10 +62,19 @@ const UploadSong = () => {
 
   return (
     <div>
+      <nav>
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><a href="/upload">Upload Song</a></li>
+          <li><a href="/search">Search Song</a></li>
+          <li><a href="/my-songs">My Songs</a></li>
+          <li><a href="#" onClick={handleLogout}>Sign Out</a></li>
+        </ul>
+      </nav>
       <h2>Upload a Song</h2>
-      <input type="text" placeholder="Song Title" value={title} onChange={(e) => setTitle(e.target.value)} />
-      <input type="text" placeholder="Artist" value={artist} onChange={(e) => setArtist(e.target.value)} />
-      <input type="file" onChange={handleFileChange} />
+      <input type="text" placeholder="Song Title*" value={title} onChange={(e) => setTitle(e.target.value)} required />
+      <input type="text" placeholder="Artist*" value={artist} onChange={(e) => setArtist(e.target.value)} required />
+      <input type="file" onChange={handleFileChange} required />
       <button onClick={handleUpload}>Upload</button>
     </div>
   );

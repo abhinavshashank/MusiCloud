@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/firebase';
 import { NavLink, useNavigate } from 'react-router-dom';
-import './login_signup.css'; // Import the CSS stylesheet
+// import './login_signup.css'; // Import the CSS stylesheet
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,13 +28,14 @@ const Login = () => {
   };
 
   return (
-    <>
-    <header>
+    <div className='container'>
+    <div>
             <img src="musicloud-color-logo.svg" alt="MusiCloud Logo"/>
+            <br/>
             <h1>MusiCloud</h1>
-        </header>
-      <main>
-        <section>
+        </div>
+      
+        
           <div>
             <form>
               <div>
@@ -62,7 +63,7 @@ const Login = () => {
               </div>
 
               <div>
-                <button onClick={onLogin}>Login</button>
+                <button onClick={onLogin}>Log In</button>
               </div>
             </form>
 
@@ -71,13 +72,13 @@ const Login = () => {
             <p className="text-sm text-white text-center">
               No account yet?{' '}
               <NavLink to="/signup" className="text-blue-500">
-                Sign up
+              <button>Sign Up</button>  
               </NavLink>
             </p>
           </div>
-        </section>
-      </main>
-    </>
+        
+      
+    </div>
   );
 };
 

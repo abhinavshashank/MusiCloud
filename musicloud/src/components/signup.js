@@ -32,18 +32,14 @@ const Signup = () => {
     }
  
   return (
-    <>
-    <header>
+    <div className='container'>
+    <div>
             <img src="musicloud-color-logo.svg" alt="MusiCloud Logo"/>
             <h1>MusiCloud</h1>
-    </header>
-    <main >        
-        <section>
-            <div>
-                <div>
-
-                    <form>                                                                                            
-                        <div>
+    </div>
+        <div>
+                <form>                                                                                            
+                    <div>
                             <label htmlFor="email-address">
                                 Email address
                             </label>
@@ -55,7 +51,7 @@ const Signup = () => {
                                 required                                    
                                 placeholder="Email address"                                
                             />
-                        </div>
+                    </div>
 
                         <div>
                             <label htmlFor="password">
@@ -72,25 +68,21 @@ const Signup = () => {
                         </div>                                             
 
                         <button
-                            type="submit" 
-                            onClick={onSubmit}                        
-                        >  
+                             onClick={onSubmit}>  
                             Sign up                                
                         </button>
 
-                    </form>
+            </form>
 
                     <p>
                         Already have an account?{' '}
                         <NavLink to="/login" >
-                            Sign in
+                        <button>Sign In</button> 
                         </NavLink>
                     </p>                   
-                </div>
-            </div>
-        </section>
-    </main>
-    </>
+        </div>
+        
+    </div>
   )
 }
  
