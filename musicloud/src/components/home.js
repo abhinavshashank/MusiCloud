@@ -8,7 +8,7 @@ import Layout from './Layout';
 import { usePlaylist } from './PlaylistContext'; // Import the context hook
 
 const Home = () => {
-    debugger;
+
   const { addToPlaylist, playlist } = usePlaylist(); // Use the context hook
 
   const navigate = useNavigate();

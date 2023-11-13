@@ -3,6 +3,12 @@ import { getDatabase } from "firebase/database";
 import { getAuth } from "firebase/auth";
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
+export const updateLikes = (songId, newLikes) => {
+  const songRef = ref(db, `songs/${songId}/likes`);
+
+  // Use the update function to only modify the likes property
+  update(songRef, newLikes);
+}
 
 const firebaseConfig = {
   apiKey: "AIzaSyCZokZIZwoswl7eyGULGi3b1CLqBpv7dNc",

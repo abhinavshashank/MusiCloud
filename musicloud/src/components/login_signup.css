@@ -1,22 +1,26 @@
+
+ 
  body {
-  background-image: url('../../assets/_90de0630-f415-4aac-9dca-756741debb9b.jpg');
-  background-size: auto;  
+  background-image: url('../../assets/Crystal Clear Images.png');
+  background-size: cover;  
+ 
+  /* background-repeat: no-repeat;  */
   font-family: Arial, sans-serif;
 }
 
 
 
-.container {
+.signin-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: rgba(47, 61, 104, 0.85);
-  
+  background-color: rgba(47, 61, 104, 0.875);
+  clip-path: polygon(35% 0, 65% 0, 65% 100%, 35% 100%);
+
 }
 
 
-/* Reduce the size of the logo image */
 img {
   width: 175px;
   height: 175px;
@@ -24,7 +28,6 @@ img {
 .logo{
   align-items: center;
 }
-/* Center the form and the error message */
 form{
   display: flex;
   flex-direction: column;
