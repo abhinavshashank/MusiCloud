@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { ref, query, orderByChild, equalTo, get } from 'firebase/database';
 import { db } from '../firebase/firebase';
 import ReactAudioPlayer from 'react-audio-player';
+import './search.css'
+import Layout from './Layout';
 
 const Search = () => {
   const navigate = useNavigate();
@@ -68,14 +70,9 @@ const Search = () => {
   };
 
   return (
-    <div>
-      <div className='sidebar'>
-                <div><a href="/upload">Upload Song</a></div>
-                <div><a href="/home">Home</a></div>
-                <div><a href="/search">Search Song</a></div>
-                <div><a href="/my-songs">My Songs</a></div>
-                <div><a href="#" onClick={handleLogout}>Sign Out</a></div>
-      </div>
+
+    <Layout mainContent={
+      <div>
       <h2>Search for a Song</h2>
       <input
         type="text"
@@ -106,6 +103,8 @@ const Search = () => {
         controls
       />
     </div>
+    }/>
+    
   );
 };
 

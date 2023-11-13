@@ -4,8 +4,10 @@ import { storage, db, auth } from '../firebase/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { push, ref as rtdbRef, set } from 'firebase/database';
 import { navigate } from 'react-router-dom';
+import Layout from './Layout';
 
 const UploadSong = () => {
+  console.log("Render")
   const navigate = useNavigate();
   const [title, setTitle] = useState('');
   const [artist, setArtist] = useState('');
@@ -61,22 +63,16 @@ const UploadSong = () => {
   };
 
   return (
-    <div>
-      <nav>
-        <ul>
-          <li><a href="/home">Home</a></li>
-          <li><a href="/upload">Upload Song</a></li>
-          <li><a href="/search">Search Song</a></li>
-          <li><a href="/my-songs">My Songs</a></li>
-          <li><a href="#" onClick={handleLogout}>Sign Out</a></li>
-        </ul>
-      </nav>
+    <Layout mainContent={
+      <div>
       <h2>Upload a Song</h2>
       <input type="text" placeholder="Song Title*" value={title} onChange={(e) => setTitle(e.target.value)} required />
       <input type="text" placeholder="Artist*" value={artist} onChange={(e) => setArtist(e.target.value)} required />
       <input type="file" onChange={handleFileChange} required />
       <button onClick={handleUpload}>Upload</button>
     </div>
+    }/>
+    
   );
 };
 

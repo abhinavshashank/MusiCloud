@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../firebase/firebase';
 import { NavLink, useNavigate } from 'react-router-dom';
-// import './login_signup.css'; // Import the CSS stylesheet
+import styles from './login_signup.css'; // Import the CSS stylesheet
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,7 +28,8 @@ const Login = () => {
   };
 
   return (
-    <div className='container'>
+    <div className={styles.loginsignupContainer}>
+        <div className='signin-container'>
     <div>
             <img src="musicloud-color-logo.svg" alt="MusiCloud Logo"/>
             <br/>
@@ -79,6 +80,8 @@ const Login = () => {
         
       
     </div>
+    </div>
+    
   );
 };
 
