@@ -96,12 +96,6 @@ const Search = () => {
           </li>
         ))}
       </ul>
-
-      <ReactAudioPlayer
-        src={selectedSong ? selectedSong.audioUrl : ''}
-        autoPlay={isPlaying}
-        controls
-      />
     </div>
     }/>
     

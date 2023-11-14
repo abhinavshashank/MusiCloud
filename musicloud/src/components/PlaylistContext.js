@@ -18,12 +18,16 @@ export const PlaylistProvider = ({ children }) => {
   };
 
   return (
-    <PlaylistContext.Provider value={{ playlist, addToPlaylist, removeFromPlaylist }}>
+    <PlaylistContext.Provider value={{ playlist, addToPlaylist, removeFromPlaylist, setPlaylist }}>
       {children}
     </PlaylistContext.Provider>
   );
 };
 
 export const usePlaylist = () => {
-  return useContext(PlaylistContext);
+  const context = useContext(PlaylistContext);
+  if (!context) {
+    throw new Error('usePlaylist must be used within a PlaylistProvider');
+  }
+  return context;
 };
