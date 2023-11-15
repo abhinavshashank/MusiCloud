@@ -153,7 +153,7 @@ const Login = ({ setIsAuthenticated, isAuthenticated }) => {
 
   return (
     <div className={styles.loginsignupContainer}>
-      <div className='signin-container'>
+      <div  className='signin-container' style={{ color: 'white', backgroundImage: `url("../../assets/Crystal Clear Images.png")`, backgroundSize: 'cover' }}>
         <div>
           <img src="musicloud-color-logo.svg" alt="MusiCloud Logo"/>
           <br/>

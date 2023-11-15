@@ -16,7 +16,7 @@
   align-items: center;
   flex-direction: column;
   background-color: rgba(47, 61, 104, 0.875);
-  clip-path: polygon(35% 0, 65% 0, 65% 100%, 35% 100%);
+  clip-path: polygon(32% 1%, 68% 1%, 68% 100%, 32% 100%);
 
 }
 

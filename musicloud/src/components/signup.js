@@ -32,7 +32,7 @@ const Signup = () => {
     }
  
   return (
-    <div className='signin-container'>
+    <div className='signin-container'  style={{ color: 'white', backgroundImage: `url("../../assets/Crystal Clear Images.png")`, backgroundSize: 'cover' }}>
     <div>
             <img src="musicloud-color-logo.svg" alt="MusiCloud Logo"/>
             <h1>MusiCloud</h1>
