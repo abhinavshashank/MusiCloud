@@ -19,7 +19,7 @@ The project is structured into several components, including:
 - `src/components`: Contains React components for different pages and features.
 - `src/firebase`: Firebase configuration and utility functions.
 - `src/context`: React context for managing the playlist state.
-- ...
+
 
 ## Technologies Used
 
