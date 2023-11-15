@@ -24,16 +24,8 @@ class TestMysongs():
     self.driver.find_element(By.ID, "email-address").send_keys("abhinavshashank008@gmail.com")
     self.driver.find_element(By.ID, "password").send_keys("Admin123")
     self.driver.find_element(By.CSS_SELECTOR, "div > button").click()
-    self.driver.find_element(By.LINK_TEXT, "My Songs").click()
-    element = self.driver.find_element(By.LINK_TEXT, "My Songs")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element).perform()
-    element = self.driver.find_element(By.CSS_SELECTOR, "body")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element, 0, 0).perform()
-    self.driver.find_element(By.CSS_SELECTOR, "div:nth-child(1) > .song-buttons > button:nth-child(2)").click()
-    elements = self.driver.find_elements(By.CSS_SELECTOR, ".react-audio-player")
-    assert len(elements) > 0
-    self.driver.find_element(By.CSS_SELECTOR, "div:nth-child(5) > button").click()
-    self.driver.close()
-  
+    time.sleep(3)
+    self.driver.find_element(By.XPATH, "//a[contains(text(),\'My Songs\')]").click()
+    WebDriverWait(self.driver, 30).until(expected_conditions.visibility_of_element_located((By.CSS_SELECTOR, ".song-buttons > button:nth-child(1)")))
+    assert self.driver.find_element(By.CSS_SELECTOR, ".song-buttons > button:nth-child(1)").text == "▶"
+

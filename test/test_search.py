@@ -20,24 +20,18 @@ class TestSearch():
   
   def test_search(self):
     self.driver.get("http://localhost:3000/")
-    self.driver.set_window_size(1193, 795)
+    self.driver.maximize_window()
     self.driver.find_element(By.ID, "email-address").send_keys("abhinavshashank008@gmail.com")
     self.driver.find_element(By.ID, "password").send_keys("Admin123")
+    self.driver.find_element(By.CSS_SELECTOR, "div > button").click()
+    time.sleep(3)
+    elements = self.driver.find_elements(By.CSS_SELECTOR, ".sidebar")
+    assert len(elements) > 0
+    time.sleep(3)
+    # WebDriverWait(self.driver, 30).until(expected_conditions.text_to_be_present_in_element((By.CSS_SELECTOR, ".main_content:nth-child(1) > div > div"), "rock you by queen\\n▶ 🎵"))
+    # WebDriverWait(self.driver, 5).until(expected_conditions.text_to_be_present_in_element((By.XPATH, "//div[@id='root']/div/div[2]/div/div/div"), "rock you by queen\\n▶ 🎵"))
     self.driver.find_element(By.LINK_TEXT, "Search Song").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input").click()
-    self.driver.find_element(By.CSS_SELECTOR, "input").send_keys("Dream")
-    self.driver.find_element(By.CSS_SELECTOR, ".main_content button").click()
-    self.driver.find_element(By.CSS_SELECTOR, "ul > div").click()
-    assert self.driver.find_element(By.CSS_SELECTOR, "ul > div").text == "Dream On by Aerosmith\\\\n▶ 🎵"
-    element = self.driver.find_element(By.CSS_SELECTOR, ".main_content")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element).click_and_hold().perform()
-    element = self.driver.find_element(By.CSS_SELECTOR, ".main_content")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element).perform()
-    element = self.driver.find_element(By.CSS_SELECTOR, ".main_content")
-    actions = ActionChains(self.driver)
-    actions.move_to_element(element).release().perform()
-    self.driver.find_element(By.CSS_SELECTOR, ".main_content").click()
-    self.driver.close()
+    self.driver.find_element(By.CSS_SELECTOR, "input").send_keys("rock")
+    self.driver.find_element(By.CSS_SELECTOR, ".main_content > div > button").click()
+    assert self.driver.find_element(By.CSS_SELECTOR, "ul > div").text == "rock you by queen\\\\n▶ 🎵"
   
