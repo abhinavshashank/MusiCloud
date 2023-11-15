@@ -32,7 +32,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route
             path="/home"
-            element={<PrivateRoute element={<Home />} isAuthenticated={isAuthenticated} />}
+            element={<PrivateRoute element={<MySongs />} isAuthenticated={isAuthenticated} />}
           />
           <Route
             path="/upload"
