@@ -23,6 +23,7 @@
     "uuid": "^9.0.1"
   },
   "devDependencies": {
+    "jest": "^27.5.1",
     "react-scripts": "^5.0.1"
   },
   "browserslist": {
