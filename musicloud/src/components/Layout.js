@@ -139,7 +139,7 @@ const Layout = ({ mainContent, isPlaying, currentSong, playlist, isAuthenticated
                 </div>
                 <div>
                     
-                    <button type="button" onClick={handleLogout} style={{ fontSize: 18, backgroundcolor: 'purple', color:'purple', marginTop: 375 }}>
+                    <button type="button" onClick={handleLogout} style={{ fontSize: 18, backgroundcolor: 'purple', color:'purple', marginTop: 75 }}>
                         <Link to="/" onClick={handleLogout}>
                             Sign Out
                         </Link>
