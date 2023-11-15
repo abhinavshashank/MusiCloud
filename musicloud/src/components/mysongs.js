@@ -1,7 +1,7 @@
 // MySongs.js
 import React, { useState, useEffect } from 'react';
 import { ref, query, orderByChild, get } from 'firebase/database';
-import { db } from '../firebase/firebase';
+import {auth,  db } from '../firebase/firebase';
 import { usePlaylist } from './PlaylistContext';
 import Layout from './Layout';
 
@@ -39,59 +39,7 @@ const MySongs = () => {
     console.log('Added to Playlist:', song);
   };
 
-//   const handlePlayPause = (audioUrl) => {
-//     const songIndex = playlist.findIndex((song) => song.audioUrl === audioUrl);
 
-//     // If the song is in the playlist, update its playing status
-//     if (songIndex !== -1) {
-//       const updatedPlaylist = [...playlist];
-//       updatedPlaylist.forEach((item, index) => {
-//         item.isPlaying = index === songIndex && !item.isPlaying;
-//       });
-
-//       setPlaylist(updatedPlaylist);
-//       setSelectedSong(updatedPlaylist[songIndex]);
-//       setIsPlaying(updatedPlaylist[songIndex].isPlaying);
-//     }
-//   };
-
-// const handlePlayPause = (audioUrl) => {
-    
-//     const updatedPlaylist = [...playlist];
-//     const songIndex = updatedPlaylist.findIndex((song) => song.audioUrl === audioUrl);
-  
-//     // Check if the song at the specified index exists
-//     if (songIndex !== -1 && updatedPlaylist[songIndex]) {
-//       // Toggle the isPlaying status for the clicked song
-//       updatedPlaylist[songIndex].isPlaying = !updatedPlaylist[songIndex].isPlaying;
-  
-//       setPlaylist(updatedPlaylist);
-//       setSelectedSong(updatedPlaylist[songIndex]);
-//       setIsPlaying(updatedPlaylist[songIndex].isPlaying);
-//     }
-//   };
-  
-// const handlePlayPause = (audioUrl, playImmediately = false) => {
-//     const updatedPlaylist = [...playlist];
-//     const songIndex = updatedPlaylist.findIndex((song) => song.audioUrl === audioUrl);
-  
-//     if (songIndex !== -1 && updatedPlaylist[songIndex]) {
-//       updatedPlaylist[songIndex].isPlaying = !updatedPlaylist[songIndex].isPlaying;
-  
-//       setPlaylist(updatedPlaylist);
-  
-//       // Define selectedSong here
-//       const selectedSong = updatedPlaylist[songIndex];
-  
-//       setSelectedSong(selectedSong);
-//       setIsPlaying(selectedSong.isPlaying);
-  
-//       if (playImmediately) {
-//         // Trigger the play in Layout.js directly
-//         togglePlayPause(audioUrl);
-//       }
-//     }
-//   };
 
 const handlePlayPause = (audioUrl, playImmediately = false) => {
     const updatedPlaylist = [...playlist];
@@ -102,7 +50,7 @@ const handlePlayPause = (audioUrl, playImmediately = false) => {
   
       setPlaylist(updatedPlaylist);
   
-      // Define selectedSong here
+
       const selectedSong = updatedPlaylist[songIndex];
   
       setSelectedSong(selectedSong);
@@ -135,7 +83,7 @@ const handlePlayPause = (audioUrl, playImmediately = false) => {
                style={{  backgroundColor: 'white', border: 'none', padding: '20px',  marginLeft: '250px'  }}
                >
                 <button onClick={() => {handleAddToPlaylist(song);handlePlayPause(song.audioUrl);}}
-                style={{ color: 'purple', padding: '11px', marginRight: '30px' }}
+                style={{ color: 'purple', padding: '11px', marginRight: '30px', paddingLeft:'12px' }}
                 >
                     ▶ {/* {selectedSong?.isPlaying ? '| |' : '▶'} */}
                     </button>
@@ -158,6 +106,7 @@ const handlePlayPause = (audioUrl, playImmediately = false) => {
       }
       isPlaying={isPlaying}
       currentSong={selectedSong}
+      
       playlist={playlist}
       togglePlayPause={handlePlayPause}
     />

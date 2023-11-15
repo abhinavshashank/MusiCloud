@@ -1,13 +1,13 @@
 // Layout.js
 import React, { useState, useEffect } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link  } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
-import { updateLikes } from '../firebase/firebase';
+import { auth, updateLikes } from '../firebase/firebase';
 import { usePlaylist } from './PlaylistContext';
 import './layout.css';
 
-const Layout = ({ mainContent, isPlaying, currentSong, playlist }) => {
+const Layout = ({ mainContent, isPlaying, currentSong, playlist, isAuthenticated }) => {
     const navigate = useNavigate();
     const { setPlaylist } = usePlaylist();
 
@@ -78,43 +78,72 @@ const Layout = ({ mainContent, isPlaying, currentSong, playlist }) => {
     };
 
     const handleLike = () => {
-        if (currentSong) {
+        console.log('Handling like...');
+        if (currentSong && currentSong.id) {
+            console.log('Song ID:', currentSong.id);
             const newLikes = (currentSong.likes || 0) + 1;
-            updateLikes(currentSong.id, newLikes); // Replace with your actual update function
-            setLikes(newLikes);
+            updateLikes(currentSong.id, newLikes)
+                .then(() => {
+                    setLikes(newLikes);
+                    console.log('Updated the likes');
+                })
+                .catch((error) => {
+                    console.error('Error updating likes:', error);
+                });
         }
     };
-
+    
+    
     const handleDislike = () => {
-        if (currentSong) {
-            const newLikes = Math.max(0, (currentSong.likes || 0) - 1);
-            updateLikes(currentSong.id, newLikes); // Replace with your actual update function
-            setLikes(newLikes);
+        if (currentSong && currentSong.id) {
+            const currentLikes = currentSong.likes || 0;
+            const newLikes = Math.max(0, currentLikes - 1);
+    
+            
+            if (currentSong.id) {
+                updateLikes(currentSong.id, newLikes)
+                    .then(() => {
+                        setLikes(newLikes); 
+                        console.log('Updated the dislikes');
+                    })
+                    .catch((error) => {
+                        console.error('Error updating dislikes:', error);
+                    });
+            } else {
+                console.error('Current song ID is undefined'); 
+            }
+        } else {
+            console.error('Current song is undefined'); 
         }
     };
+    
+    
 
     console.log('Layout - Rendering...');
     return (
         <div className="container">
             <div className="sidebar">
                 <div>
-                    <a href="/home">
+                    <Link to ="/home">
                         <img src="musicloud-color-logo.svg" alt="MusiCloud Logo" />
-                    </a>
+                    </Link>
+                </div>
+                <div style={{ fontSize: 18, color: 'white', marginTop: 30 }}>
+                    <Link to="/upload">Upload Song</Link>
+                </div>
+                <div style={{ fontSize: 18, color: 'white', marginTop: 50 }}>
+                    <Link to="/search">Search Song</Link>
+                </div>
+                <div style={{ fontSize: 18, color: 'white', marginTop: 50 }}>
+                    <Link to="/my-songs">My Songs</Link>
                 </div>
                 <div>
-                    <a href="/upload">Upload Song</a>
-                </div>
-                <div>
-                    <a href="/search">Search Song</a>
-                </div>
-                <div>
-                    <a href="/my-songs">My Songs</a>
-                </div>
-                <div>
-                    <a href="#" onClick={handleLogout}>
-                        Sign Out
-                    </a>
+                    
+                    <button type="button" onClick={handleLogout} style={{ fontSize: 18, backgroundcolor: 'purple', color:'purple', marginTop: 375 }}>
+                        <Link to="/" onClick={handleLogout}>
+                            Sign Out
+                        </Link>
+                    </button>
                 </div>
             </div>
             <div className="main_content">{mainContent}</div>
@@ -124,11 +153,13 @@ const Layout = ({ mainContent, isPlaying, currentSong, playlist }) => {
                         <button
                             id="PrevButton"
                             onClick={playPrevious}
-                            style={{ fontSize: 24, color: 'darkblue', marginRight: 10 }}
+                            style={{ fontSize: 20, color: 'darkblue', marginRight: 10,  }}
                         >
                             ⏮️
                         </button>
-                        <ReactAudioPlayer
+                        <ReactAudioPlayer className='audioplayer'
+                            style={{ fontSize: 30, color: 'white', width: 420,  }}
+                            playButtonColor="800080"
                             src={currentSong ? currentSong.audioUrl : ''}
                             autoPlay={true}
                             controls
@@ -138,17 +169,17 @@ const Layout = ({ mainContent, isPlaying, currentSong, playlist }) => {
                         <button
                             id="NextButton"
                             onClick={playNext}
-                            style={{ fontSize: 24, color: 'darkblue', marginLeft: 10 }}
+                            style={{ fontSize: 20, color: 'darkblue', marginLeft: 10 }}
                         >
                             ⏭️
                         </button>
                         <span id="like-container">
                             <button id="LikeButton" onClick={handleLike}>
-                                Like
+                            👍
                             </button>
                             <span>{likes}</span>
                             <button id="DislikeButton" onClick={handleDislike}>
-                                Dislike
+                            👎
                             </button>
                         </span>
                     </div>

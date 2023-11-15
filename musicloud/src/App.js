@@ -1,87 +1,58 @@
-
-
-// function App() {
-//   return (
-//     <Router>
-//       <PlaylistProvider>
-//         <Routes>
-//           <Route path="/" element={<Login />} />
-//           <Route path="/home" element={<Home />} />
-//           <Route path="/signup" element={<Signup />} />
-//           <Route path="/login" element={<Login />} />
-//           <Route path="/upload" element={<UploadSong />} />
-//           <Route path="/search" element={<Search />} />
-//           <Route path="/my-songs" element={<MySongs />} />
-//         </Routes>
-//       </PlaylistProvider>
-//     </Router>
-//   );
-// }
-
-// export default App;
-
-//App.js
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { PlaylistProvider } from './components/PlaylistContext';
-import Layout from './components/Layout';
 import Home from './components/home';
 import Signup from './components/signup';
 import Login from './components/login';
 import UploadSong from './components/UploadSong';
 import Search from './components/search';
 import MySongs from './components/mysongs';
-
+import { getAuth, onAuthStateChanged  } from 'firebase/auth';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
+  const auth = getAuth();
+  const [isAuthenticated, setIsAuthenticated] = useState(!!auth.currentUser);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setIsAuthenticated(!!user);
+    });
+
+    return () => unsubscribe();
+  }, [auth]);
   return (
     <Router>
       <PlaylistProvider>
-          <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/upload" element={<UploadSong />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/my-songs" element={<MySongs />} />
-          </Routes>
-        
-        
+        <Routes>
+          <Route
+            path="/"
+            element={<Login setIsAuthenticated={setIsAuthenticated} isAuthenticated={isAuthenticated} />}
+          />
+          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/home"
+            element={<PrivateRoute element={<Home />} isAuthenticated={isAuthenticated} />}
+          />
+          <Route
+            path="/upload"
+            element={<PrivateRoute element={<UploadSong />} isAuthenticated={isAuthenticated} />}
+          />
+          <Route
+            path="/search"
+            element={<PrivateRoute element={<Search />} isAuthenticated={isAuthenticated} />}
+          />
+          <Route
+            path="/my-songs"
+            element={<PrivateRoute element={<MySongs />} isAuthenticated={isAuthenticated} />}
+          />
+          {/* Add a catch-all or 404 route if needed */}
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
       </PlaylistProvider>
     </Router>
   );
 }
 
 export default App;
-
-
-// function App() {
-//   return (
-//     <Router>
-//       <PlaylistProvider>
-//         <Routes>
-//           <Route path="/" element={<Login />} />
-//           <Route path="/signup" element={<Signup />} />
-//           <Route
-//             path="/app*"
-//             element={
-//               <Layout>
-//                 <Routes>
-//                   <Route path="/home" element={<Home />} />
-//                   <Route path="/my-songs" element={<MySongs />} />
-//                   <Route path="/upload" element={<Upload />} />
-//                   <Route path="/search" element={<Search />} />
-//                 </Routes>
-//               </Layout>
-//             }
-//           />
-//         </Routes>
-//       </PlaylistProvider>
-//     </Router>
-//   );
-// }
-
-// export default App;
 

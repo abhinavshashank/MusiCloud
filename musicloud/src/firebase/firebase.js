@@ -1,14 +1,9 @@
-import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database"; 
-import { getAuth } from "firebase/auth";
-import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+import { getDatabase, ref, query, orderByChild, limitToLast, get, update } from 'firebase/database';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
 
-export const updateLikes = (songId, newLikes) => {
-  const songRef = ref(db, `songs/${songId}/likes`);
 
-  // Use the update function to only modify the likes property
-  update(songRef, newLikes);
-}
 
 const firebaseConfig = {
   apiKey: "AIzaSyCZokZIZwoswl7eyGULGi3b1CLqBpv7dNc",
@@ -24,7 +19,29 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getDatabase(app);
 const storage = getStorage(app);
-const db = getDatabase(app); 
 
-export { auth, storage, db, ref, uploadBytes, getDownloadURL };
+
+export const updateLikes = (songId, newLikes) => {
+  const songRef = ref(db, `songs/${songId}`);
+
+
+  update(songRef, { likes: newLikes });
+};
+
+
+
+export {
+  auth,
+  storage,
+  db,
+  storageRef,
+  uploadBytes,
+  getDownloadURL,
+  ref,
+  query,
+  orderByChild,
+  limitToLast,
+  get
+};

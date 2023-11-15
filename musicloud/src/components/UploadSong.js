@@ -66,10 +66,13 @@ const UploadSong = () => {
     <Layout mainContent={
       <div>
       <h2>Upload a Song</h2>
-      <input type="text" placeholder="Song Title*" value={title} onChange={(e) => setTitle(e.target.value)} required />
-      <input type="text" placeholder="Artist*" value={artist} onChange={(e) => setArtist(e.target.value)} required />
-      <input type="file" onChange={handleFileChange} required />
-      <button onClick={handleUpload}>Upload</button>
+      <input style={{ width: '400px', marginRight:'20px' }}  type="text" placeholder="Song Title*" value={title} onChange={(e) => setTitle(e.target.value)} required />
+      
+      <input style={{ width: '400px', marginRight:'20px' }} type="text" placeholder="Artist*" value={artist} onChange={(e) => setArtist(e.target.value)} required />
+      <br/>
+      <input  style={{ color: 'purple', backgroundcolor:'white', padding: '10px', width:'100px'}} type="file" onChange={handleFileChange} required />
+      <br/>
+      <button style={{ color: 'purple', backgroundcolor:'white', padding: '10px', marginRight: '30px' }} onClick={handleUpload}>Upload</button>
     </div>
     }/>
     

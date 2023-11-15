@@ -1,13 +1,12 @@
+
 body {
     margin: 0;
     padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     /* background-color: #4285f4; */
     /* background-image: url('../../assets/Crystal Clear Images.png'); 
-    background-size: auto; 
-    background-repeat: no-repeat;
-    background-blend-mode: multiply;  */
-    color: rgb(0, 0, 0);
+    */
+    color: purple;
   }
   
   img {
@@ -23,8 +22,8 @@ body {
   
   .sidebar {
     flex: 0 0 200px;
-    background-color: rgba(70, 50, 150, 0.5); /* Sidebar background color with transparency */
-    color: rgb(0, 0, 0); /* Sidebar text color */
+    background-color: rgba(70, 50, 150, 0.5); 
+    color: rgb(0, 0, 0); 
     position: fixed;
     top: 0;
     left: 0;
@@ -37,19 +36,19 @@ body {
   
   .sidebar a {
     text-decoration: none;
-    color: rgb(0, 0, 0); /* Sidebar link color */
+    color: rgb(0, 0, 0); 
     margin-bottom: 15px;
   }
   
   .main_content {
     flex: 1;
     padding: 20px;
-    margin-left: 200px; /* Adjust based on your sidebar width */
+    margin-left: 200px; 
   }
   
   .now-playing-container {
-    background-color: rgba(70, 50, 150, 0.5); /* Music container background color with transparency */
-    color: rgb(0, 0, 0); /* Music container text color */
+    background-color: rgba(70, 50, 150, 0.5); 
+    color: rgb(0, 0, 0); 
     padding: 20px;
     position: fixed;
     bottom: 0;
@@ -62,5 +61,22 @@ body {
   span{
     padding: 20px;
   }
+  .audioPlayer{
+    background-color: white; 
+  }
+
+  
+button {
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 16px;
+  background-color: #9183eeb5;
+  transition: transform 0.2s ease-in-out;
+}
+
+button:hover{
+  background-color:#9183eee6;
+  transform: scale(1.1);
+}
 
   

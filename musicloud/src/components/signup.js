@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {  createUserWithEmailAndPassword  } from 'firebase/auth';
 import { auth } from '../firebase/firebase';
-import './login_signup.css'; // Import the CSS stylesheet
+import './login_signup.css'; 
  
 const Signup = () => {
     const navigate = useNavigate();
@@ -18,7 +18,7 @@ const Signup = () => {
             // Signed in
             const user = userCredential.user;
             console.log(user);
-            navigate("/login")
+            navigate("/")
             // ...
         })
         .catch((error) => {
@@ -76,7 +76,7 @@ const Signup = () => {
 
                     <p>
                         Already have an account?{' '}
-                        <NavLink to="/login" >
+                        <NavLink to="/" >
                         <button>Sign In</button> 
                         </NavLink>
                     </p>                   
