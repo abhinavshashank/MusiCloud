@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+<img src="https://github.com/abhinavshashank/MusiCloud/assets/30064448/2d83a285-499c-4d29-aeb7-a7c0a6e3869b" alt="musicloud-color-logo" width="250" height="250" />
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# MusiCloud 
 
-In the project directory, you can run:
+CSE 5325 SE - 2 Fall 2023 Project
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+MusiCloud is an academic web application designed for managing and playing music. It features functionalities like song upload, playlist creation, and song playback.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Overview
 
-### `npm test`
+MusiCloud provides a platform for users to upload, organize, and enjoy their music. It's built with [React](https://reactjs.org/) for the frontend and [Firebase](https://firebase.google.com/) for the backend, making it a modern and responsive music management system.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Structure
 
-### `npm run build`
+The project is structured into several components, including:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `src/components`: Contains React components for different pages and features.
+- `src/firebase`: Firebase configuration and utility functions.
+- `src/context`: React context for managing the playlist state.
+- ...
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technologies Used
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Frontend**: React, React Router, React Audio Player
+- **Backend**: Firebase (Authentication, Realtime Database, Storage)
+- **Styling**: CSS3 
 
-### `npm run eject`
+## How to Run the Project
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. If you have the project zip file, just neext to expand the zip file or else you can clone the repository: `git clone https://github.com/abhinavshashank/MusiCloud.git`
+2. Install Node if you haven't already, by going to the link : `https://nodejs.org/en/download/` and selecting your System's OS
+3. After you've installed node, you should go to the path in which the project files are present, by `cd Path-to-MusiCloud/musicloud` and then install the dependencies by: `npm install`
+5. You can now run the project by : `npm start`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- User authentication
+- Song upload
+- Search a song
+- Dynamic playback with React Audio Player
+- See the list of songs uploaded by you
+- Logout
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Usage Instructions
 
-## Learn More
+1. Sign up or log in to your MusiCloud account.
+2. After signing in Upload your songs through the "Upload" feature on the left sidebar.
+3. You can now see the songs uploaded by you in "My Songs" section.
+4. You can also search for any song that has been uploaded here.
+5. You can play a song by clicking the play button cooresponding to the song in the My Songs Section or from the Search Result.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contact Information
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+For any questions or clarifications, please contact:
 
-### Code Splitting
+- **Name**: Abhinav Shashank Choudhary
+- **Email**: axc9180@mavs.uta.edu
+- **UTA ID**: 1002039179 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Name**: Michael Danilson
+- **Email**: mxd9595@mavs.uta.edu
+- **UTA ID**: 1002069595 
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

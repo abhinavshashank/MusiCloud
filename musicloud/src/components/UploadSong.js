@@ -47,7 +47,7 @@ const UploadSong = () => {
         uid: user.uid, 
         filename: file.name, 
         likes: 0,
-        streamed: 0,
+        liked_by: {}
       };
 
       const databaseRef = rtdbRef(db, 'songs'); 
@@ -70,7 +70,7 @@ const UploadSong = () => {
       
       <input style={{ width: '400px', marginRight:'20px' }} type="text" placeholder="Artist*" value={artist} onChange={(e) => setArtist(e.target.value)} required />
       <br/>
-      <input  style={{ color: 'purple', backgroundcolor:'white', padding: '10px', width:'200px'}} type="file" onChange={handleFileChange} required />
+      <input  style={{ color: 'purple', backgroundcolor:'white', padding: '10px', width:'220px'}} type="file" onChange={handleFileChange} required />
       <br/>
       <button style={{ color: 'purple', backgroundcolor:'white', padding: '10px', marginRight: '30px' }} onClick={handleUpload}>Upload</button>
     </div>

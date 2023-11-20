@@ -17,6 +17,7 @@
     "react-audio-player": "^0.17.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.18.0",
+    "react-spring": "^9.7.3",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
     "url": "^0.11.3",
