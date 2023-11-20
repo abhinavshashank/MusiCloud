@@ -38,6 +38,8 @@ The project is structured into several components, including:
 
 - User authentication
 - Song upload
+- Like a Song
+- Most Liked Songs
 - Search a song
 - Dynamic playback with React Audio Player
 - See the list of songs uploaded by you
