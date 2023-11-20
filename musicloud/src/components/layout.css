@@ -6,6 +6,8 @@ body {
     /* background-color: #4285f4; */
     /* background-image: url('../../assets/Crystal Clear Images.png'); 
     */
+    background-image: none;
+    background-color: beige;
     color: purple;
   }
   
@@ -23,7 +25,7 @@ body {
   .sidebar {
     flex: 0 0 200px;
     background-color: rgba(70, 50, 150, 0.5); 
-    color: rgb(0, 0, 0); 
+    /* color: rgb(0, 0, 0);  */
     position: fixed;
     top: 0;
     left: 0;
@@ -69,6 +71,7 @@ body {
 button {
   border-radius: 5px;
   padding: 15px;
+  color: white;
   font-size: 16px;
   background-color: #9183ee43;
   transition: transform 0.2s ease-in-out;

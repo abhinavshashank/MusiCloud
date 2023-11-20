@@ -5,6 +5,7 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { push, ref as rtdbRef, set } from 'firebase/database';
 import { navigate } from 'react-router-dom';
 import Layout from './Layout';
+import './search.css'
 
 const UploadSong = () => {
   console.log("Render")
@@ -64,7 +65,7 @@ const UploadSong = () => {
 
   return (
     <Layout mainContent={
-      <div>
+      <div style={{marginLeft:'20px'}}>
       <h2>Upload a Song</h2>
       <input style={{ width: '400px', marginRight:'20px' }}  type="text" placeholder="Song Title*" value={title} onChange={(e) => setTitle(e.target.value)} required />
       

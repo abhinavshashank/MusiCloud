@@ -5,6 +5,7 @@ import { ref, query, orderByChild, equalTo, get } from 'firebase/database';
 import { auth, db } from '../firebase/firebase';
 import { usePlaylist } from './PlaylistContext';
 import Layout from './Layout';
+import './search.css'
 import ReactAudioPlayer from 'react-audio-player';
 import AnimatedHeartButton from './AnimatedHeartButton';
 
@@ -129,7 +130,7 @@ const MySongs = () => {
                 {song.title} by {song.artist}
                 <div
                   className='song-buttons'
-                  style={{ backgroundColor: 'white', border: 'none', padding: '20px', marginLeft: '250px' }}
+                  style={{ border: 'none', padding: '20px', marginLeft: '250px' }}
                 >
                   <button
                     onClick={() => {
@@ -167,7 +168,7 @@ const MySongs = () => {
                 </button>
                 <ReactAudioPlayer
                   className='audioplayer'
-                  style={{ fontSize: 30, color: 'white', width: 420 }}
+                  style={{ fontSize: 30, color: 'beige', width: 420 }}
                   src={selectedSong ? selectedSong.audioUrl : ''}
                   autoPlay={!!selectedSong}  
                   controls

@@ -134,7 +134,7 @@ const Search = () => {
             {searchResults.map((song) => (
               <div key={song.id}>
                 {song.title} by {song.artist}
-                <div className="song-buttons" style={{ backgroundColor: 'white', border: 'none', padding: '20px', marginLeft: '250px' }}>
+                <div className="song-buttons" style={{ border: 'none', padding: '20px', marginLeft: '250px' }}>
                   <button
                     onClick={() => {
                       handleAddToPlaylist(song);
@@ -174,7 +174,7 @@ const Search = () => {
                   </button>
                   <ReactAudioPlayer
                     className="audioplayer"
-                    style={{ fontSize: 30, color: 'white', width: 420 }}
+                    style={{ fontSize: 30, color: 'beige', width: 420 }}
                     src={selectedSong ? selectedSong.audioUrl : ''}
                     autoPlay={isPlaying}
                     controls

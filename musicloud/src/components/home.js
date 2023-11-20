@@ -5,6 +5,7 @@ import { auth, db, ref, query, orderByChild, limitToLast, get } from '../firebas
 import ReactAudioPlayer from 'react-audio-player';
 import Layout from './Layout';
 import { usePlaylist } from './PlaylistContext';
+import './search.css'
 import AnimatedHeartButton from './AnimatedHeartButton';
 
 const Home = () => {
@@ -138,7 +139,7 @@ const Home = () => {
           {popularSongs.map((song) => (
             <li key={song.id} style={{padding:5}}>
                 <span>{song.title} by {song.artist}</span>
-                <div className="song-buttons" style={{ backgroundColor: 'white', border: 'none', padding: '20px', marginLeft: '250px' }}>
+                <div className="song-buttons" style={{ border: 'none', padding: '20px', marginLeft: '250px' }}>
                 <span style={{marginRight:5}} >❤️{song.likes || 0}</span>
                 <button
                     style={{padding:10, marginRight:5}}
